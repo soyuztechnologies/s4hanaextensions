@@ -2,6 +2,18 @@
 
 Welcome to your new project.
 
+Steps :
+Follow documentation 
+https://api.sap.com/api/OP_API_SALES_ORDER_SRV_0001/cloud-sdk/JavaScript
+
+TRANSPILE is VERY IMPORANT
+npx generate-odata-client --transpile --input resources/service-specs --outputDir src/generated
+
+cf create-service xsuaa application myxsuaa
+cf create-service-key myxsuaa myxsuaa-key 
+cds bind --to myxsuaa:myxsuaa-key
+cds run --profile hybrid
+
 It contains these folders and files, following our recommended project layout:
 
 File or Folder | Purpose
