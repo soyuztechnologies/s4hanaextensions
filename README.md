@@ -9,6 +9,8 @@ https://api.sap.com/api/OP_API_SALES_ORDER_SRV_0001/cloud-sdk/JavaScript
 TRANSPILE is VERY IMPORANT
 npx generate-odata-client --transpile --input resources/service-specs --outputDir src/generated
 
+Copy src folder inside srv so packaging can be done
+
 cf create-service xsuaa application myxsuaa
 cf create-service-key myxsuaa myxsuaa-key 
 cds bind --to myxsuaa:myxsuaa-key
