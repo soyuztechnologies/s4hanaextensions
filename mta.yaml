@@ -23,6 +23,7 @@ modules:
           srv-url: ${default-url}
     requires:
       - name: testso-auth
+      - name: testso-dest
 
 resources:
   - name: testso-auth
@@ -34,3 +35,7 @@ resources:
       config:
         xsappname: testso-${org}-${space}
         tenant-mode: dedicated
+  - name: testso-dest
+    type: org.cloudfoundry.existing-service
+    parameters:
+      service-name: testso-dest

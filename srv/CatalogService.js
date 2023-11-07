@@ -5,7 +5,7 @@ module.exports = cds.service.impl(async function(srv){
     const { MySalesOrder } = this.entities;
     
     var getAllSalesOrders = async function(){
-        const { opApiSalesOrderSrv0001 } = require('../src/generated/OP_API_SALES_ORDER_SRV_0001');
+        const { opApiSalesOrderSrv0001 } = require('./src/generated/OP_API_SALES_ORDER_SRV_0001');
         const { salesOrderApi } = opApiSalesOrderSrv0001();
         const dataSalesData = await salesOrderApi.requestBuilder().getAll().top(30)
         .select(
@@ -17,10 +17,10 @@ module.exports = cds.service.impl(async function(srv){
             salesOrderApi.schema.TO_ITEM
         )
         .execute({
-            //destinationName: "S4HANA"
-            "url": "http://122.162.240.164:8030",
-            "username": "",
-            "password": ""
+            destinationName: "CFN"
+            // "url": "http://122.162.240.164:8030",
+            // "username": "",
+            // "password": ""
         });
         return dataSalesData;
     };
